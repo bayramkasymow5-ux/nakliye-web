@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Nakliye Maglumat Girizmek</title>
+</head>
+<body>
+<h2>Nakliye Maglumat Girizmek</h2>
+
+<form id="form">
+  Ad: <input type="text" id="ad"><br><br>
+  Telefon: <input type="text" id="telefon"><br><br>
+  Ugratýan: <input type="text" id="ugratyan"><br><br>
+  Alyjy: <input type="text" id="alyjy"><br><br>
+  Baha: <input type="text" id="baha"><br><br>
+  <button type="button" onclick="send()">Ugrat</button>
+</form>
+
+<script>
+function send() {
+    fetch("/add", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            ad: document.getElementById("ad").value,
+            telefon: document.getElementById("telefon").value,
+            ugratyan: document.getElementById("ugratyan").value,
+            alyjy: document.getElementById("alyjy").value,
+            baha: document.getElementById("baha").value
+        })
+    }).then(r => alert("Ugradyldy!"));
+}
+</script>
+
+</body>
+</html>
