@@ -48,7 +48,9 @@ app.post("/api/login", (req, res) => {
   );
 });
 
-// serveri işledýäris
-app.listen(3000, () => {
-  console.log("Server işledi: http://localhost:3000");
+// PORT — Railway üçin hökmany
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log("Server işledi: " + PORT);
 });
